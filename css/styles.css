@@ -1,0 +1,27 @@
+.total {
+    background-color:#D6D6D6;
+    font-weight:bold;
+}
+
+th.top {
+    text-align:center;
+}
+
+.weightBalance th {
+    text-align:left;
+    padding-right:.25em;
+    padding-left:.25em;
+}
+
+.weightBalance input[type=text] {
+    width:100px;
+    text-align:right;
+    padding:5px;
+    border:2px solid #DDD;
+    /*-webkit-border-radius: 5px;*/
+    /*border-radius: 5px;*/
+}
+
+.readonly input {
+    border: none;
+}

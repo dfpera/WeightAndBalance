@@ -1,0 +1,279 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Weight & Balance</title>
+<link rel="stylesheet" href="css/styles.css">
+<script src="js/jquery-1.11.2.min.js" type="text/javascript"></script>
+<!--[if lte IE 8]><script language="javascript" type="text/javascript" src="js/flot/excanvas.min.js"></script><![endif]-->
+<script language="javascript" type="text/javascript" src="js/flot/jquery.js"></script>
+<script language="javascript" type="text/javascript" src="js/flot/jquery.flot.js"></script>
+<script language="javascript" type="text/javascript" src="js/flot/jquery.flot.axislabels.js"></script>
+<script src="js/main.js" type="text/javascript"></script>
+</head>
+<body>
+<!-- BE-76 Table and Graph -->
+<h1>BE-76</h1>
+<table id="BE-76" class="weightBalance">
+    <tr>
+        <th></th>
+        <th class="top">Weight<br>(lbs)</th>
+        <th class="top">Arm<br>(inches)</th>
+        <th class="top">Moment<br>(inch-lbs/100)</th>
+    </tr>
+    <tr>
+        <th>Basic Empty Weight</th>
+        <td><input type="text" name="A1" value="0"></td>
+        <td><input type="text" name="B1" value="0"></td>
+        <td class="readonly"><input type="text" name="C1" value="0" readonly></td>
+    </tr>
+    <tr>
+        <th>Pilot and Co-Pilot</th>
+        <td><input type="text" name="A2" value="0"></td>
+        <td class="readonly"><input type="text" name="B2" value="108.0" readonly></td>
+        <td class="readonly"><input type="text" name="C2" value="0" readonly></td>
+    </tr>
+    <tr>
+        <th>Rear Passengers</th>
+        <td><input type="text" name="A3" value="0"></td>
+        <td class="readonly"><input type="text" name="B3" value="144.0" readonly></td>
+        <td class="readonly"><input type="text" name="C3" value="0" readonly></td>
+    </tr>
+    <tr>
+        <th>Baggage (Max 200lb)</th>
+        <td><input type="text" name="A4" value="0"></td>
+        <td class="readonly"><input type="text" name="B4" value="167.0" readonly></td>
+        <td class="readonly"><input type="text" name="C4" value="0" readonly></td>
+    </tr>
+    <tr class="total">
+        <th>Zero Fuel Total (Max 3500lb)</th>
+        <td><input class="total" type="text" name="A5" value="0" readonly></td>
+        <td class="readonly"><input class="total" type="text" name="B5" value="0" readonly></td>
+        <td class="readonly"><input class="total" type="text" name="C5" value="0" readonly></td>
+    </tr>
+    <tr>
+        <th>Fuel (6lb/USG)</th>
+        <td><input type="text" name="A6" value="0"></td>
+        <td class="readonly"><input type="text" name="B6" value="117.0" readonly></td>
+        <td class="readonly"><input type="text" name="C6" value="0" readonly></td>
+    </tr>
+    <tr class="total">
+        <th>Ramp Weight (Max 3916lb)</th>
+        <td class="readonly"><input class="total" type="text" name="A7" value="0" readonly></td>
+        <td class="readonly"><input class="total" type="text" name="B7" value="0" readonly></td>
+        <td class="readonly"><input class="total" type="text" name="C7" value="0" readonly></td>
+    </tr>
+    <tr>
+        <th>Start & Taxi Fuel</th>
+        <td><input type="text" name="A8" value="0"></td>
+        <td class="readonly"><input type="text" name="B8" value="117.0" readonly></td>
+        <td class="readonly"><input type="text" name="C8" value="0" readonly></td>
+    </tr>
+    <tr class="total">
+        <th>Take-Off Weight (Max 3900lb)</th>
+        <td class="readonly"><input class="total" type="text" name="A9" value="0" readonly></td>
+        <td class="readonly"><input class="total" type="text" name="B9" value="0" readonly></td>
+        <td class="readonly"><input class="total" type="text" name="C9" value="0" readonly></td>
+    </tr>
+    <tr>
+        <th>Trip Fuel (6lb/USG)</th>
+        <td><input type="text" name="A10" value="0"></td>
+        <td class="readonly"><input type="text" name="B10" value="117.0" readonly></td>
+        <td class="readonly"><input type="text" name="C10" value="0" readonly></td>
+    </tr>
+    <tr class="total">
+        <th>Landing Weight (Max 3900lb)</th>
+        <td class="readonly"><input class="total" type="text" name="A11" value="0" readonly></td>
+        <td class="readonly"><input class="total" type="text" name="B11" value="0" readonly></td>
+        <td class="readonly"><input class="total" type="text" name="C11" value="0" readonly></td>
+    </tr>
+</table>
+<div id="BE76Graph" style="width:600px; height:500px;"></div>
+
+<!-- DA42 Table and Graph -->
+<h1>DA42</h1>
+<table id="DA42" class="weightBalance">
+    <tr>
+        <th></th>
+        <th class="top">Weight<br>(lbs)</th>
+        <th class="top">Arm<br>(inches)</th>
+        <th class="top">Moment<br>(inch-lbs/100)</th>
+    </tr>
+    <tr>
+        <th>Basic Empty Weight</th>
+        <td><input type="text" name="A1" value="0"></td>
+        <td><input type="text" name="B1" value="0"></td>
+        <td class="readonly"><input type="text" name="C1" value="0" readonly></td>
+    </tr>
+    <tr>
+        <th>Pilot and Co-Pilot</th>
+        <td><input type="text" name="A2" value="0"></td>
+        <td class="readonly"><input type="text" name="B2" value="90.6" readonly></td>
+        <td class="readonly"><input type="text" name="C2" value="0" readonly></td>
+    </tr>
+    <tr>
+        <th>Rear Passengers</th>
+        <td><input type="text" name="A3" value="0"></td>
+        <td class="readonly"><input type="text" name="B3" value="128.0" readonly></td>
+        <td class="readonly"><input type="text" name="C3" value="0" readonly></td>
+    </tr>
+    <tr>
+        <th>Nose Baggage</th>
+        <td><input type="text" name="A4" value="0"></td>
+        <td class="readonly"><input type="text" name="B4" value="23.6" readonly></td>
+        <td class="readonly"><input type="text" name="C4" value="0" readonly></td>
+    </tr>
+    <tr>
+        <th>Cockpit Baggage</th>
+        <td><input type="text" name="A5" value="0"></td>
+        <td class="readonly"><input type="text" name="B5" value="153.1" readonly></td>
+        <td class="readonly"><input type="text" name="C5" value="0" readonly></td>
+    </tr>
+    <tr>
+        <th>Baggage Extension</th>
+        <td><input type="text" name="A6" value="0"></td>
+        <td class="readonly"><input type="text" name="B6" value="178.7" readonly></td>
+        <td class="readonly"><input type="text" name="C6" value="0" readonly></td>
+    </tr>
+    <tr>
+        <th>De-Icing Fluid (9.2 lb/USG)</th>
+        <td><input type="text" name="A7" value="0"></td>
+        <td class="readonly"><input type="text" name="B7" value="39.4" readonly></td>
+        <td class="readonly"><input type="text" name="C7" value="0" readonly></td>
+    </tr>
+    <tr class="total">
+        <th>Zero Fuel Total (Max 3638lb)</th>
+        <td class="readonly"><input class="total" type="text" name="A8" value="0" readonly></td>
+        <td class="readonly"><input class="total" type="text" name="B8" value="0" readonly></td>
+        <td class="readonly"><input class="total" type="text" name="C8" value="0" readonly></td>
+    </tr>
+    <tr>
+        <th>Useable Fuel, Main Tanks (7.01lb/USG)</th>
+        <td><input type="text" name="A9" value="0"></td>
+        <td class="readonly"><input type="text" name="B9" value="103.5" readonly></td>
+        <td class="readonly"><input type="text" name="C9" value="0" readonly></td>
+    </tr>
+    <tr>
+        <th>Useable Fuel, Aux Tanks (7.01lb/USG)</th>
+        <td><input type="text" name="A10" value="0"></td>
+        <td class="readonly"><input type="text" name="B10" value="126.0" readonly></td>
+        <td class="readonly"><input type="text" name="C10" value="0" readonly></td>
+    </tr>
+    <tr class="total">
+        <th>Ramp Weight (Max 3953lb)</th>
+        <td class="readonly"><input class="total" type="text" name="A11" value="0" readonly></td>
+        <td class="readonly"><input class="total" type="text" name="B11" value="0" readonly></td>
+        <td class="readonly"><input class="total" type="text" name="C11" value="0" readonly></td>
+    </tr>
+    <tr>
+        <th>Start & Taxi Fuel</th>
+        <td><input type="text" name="A12" value="0"></td>
+        <td class="readonly"><input type="text" name="B12" value="103.5" readonly></td>
+        <td class="readonly"><input type="text" name="C12" value="0" readonly></td>
+    </tr>
+    <tr class="total">
+        <th>Take-Off Weight (Max 3900lb)</th>
+        <td class="readonly"><input class="total" type="text" name="A13" value="0" readonly></td>
+        <td class="readonly"><input class="total" type="text" name="B13" value="0" readonly></td>
+        <td class="readonly"><input class="total" type="text" name="C13" value="0" readonly></td>
+    </tr>
+    <tr>
+        <th>Trip Fuel, Main Tanks (7.01lb/USG)</th>
+        <td><input type="text" name="A14" value="0"></td>
+        <td class="readonly"><input type="text" name="B14" value="103.5" readonly></td>
+        <td class="readonly"><input type="text" name="C14" value="0" readonly></td>
+    </tr>
+    <tr>
+        <th>Trip Fuel, Aux Tanks (7.01lb/USG)</th>
+        <td><input type="text" name="A15" value="0"></td>
+        <td class="readonly"><input type="text" name="B15" value="126.0" readonly></td>
+        <td class="readonly"><input type="text" name="C15" value="0" readonly></td>
+    </tr>
+    <tr class="total">
+        <th>Landing Weight (Max 3900lb)</th>
+        <td class="readonly"><input class="total" type="text" name="A16" value="0" readonly></td>
+        <td class="readonly"><input class="total" type="text" name="B16" value="0" readonly></td>
+        <td class="readonly"><input class="total" type="text" name="C16" value="0" readonly></td>
+    </tr>
+</table>
+<div id="DA42Graph" style="width:600px; height:500px;"></div>
+
+<!-- PA44 Table and Graph -->
+<h1>PA44</h1>
+<table id="PA44" class="weightBalance">
+    <tr>
+        <th></th>
+        <th class="top">Weight<br>(lbs)</th>
+        <th class="top">Arm<br>(inches)</th>
+        <th class="top">Moment<br>(inch-lbs/100)</th>
+    </tr>
+    <tr>
+        <th>Basic Empty Weight</th>
+        <td><input type="text" name="A1" value="0"></td>
+        <td><input type="text" name="B1" value="0"></td>
+        <td class="readonly"><input type="text" name="C1" value="0" readonly></td>
+    </tr>
+    <tr>
+        <th>Pilot and Co-Pilot</th>
+        <td><input type="text" name="A2" value="0"></td>
+        <td class="readonly"><input type="text" name="B2" value="80.5" readonly></td>
+        <td class="readonly"><input type="text" name="C2" value="0" readonly></td>
+    </tr>
+    <tr>
+        <th>Rear Passengers</th>
+        <td><input type="text" name="A3" value="0"></td>
+        <td class="readonly"><input type="text" name="B3" value="118.1" readonly></td>
+        <td class="readonly"><input type="text" name="C3" value="0" readonly></td>
+    </tr>
+    <tr>
+        <th>Baggage (Max 200lb)</th>
+        <td><input type="text" name="A4" value="0"></td>
+        <td class="readonly"><input type="text" name="B4" value="142.8" readonly></td>
+        <td class="readonly"><input type="text" name="C4" value="0" readonly></td>
+    </tr>
+    <tr class="total">
+        <th>Zero Fuel Total</th>
+        <td class="readonly"><input class="total" type="text" name="A5" value="0" readonly></td>
+        <td class="readonly"><input class="total" type="text" name="B5" value="0" readonly></td>
+        <td class="readonly"><input class="total" type="text" name="C5" value="0" readonly></td>
+    </tr>
+    <tr>
+        <th>Fuel (6lb/USG)</th>
+        <td><input type="text" name="A6" value="0"></td>
+        <td class="readonly"><input type="text" name="B6" value="95.0" readonly></td>
+        <td class="readonly"><input type="text" name="C6" value="0" readonly></td>
+    </tr>
+    <tr class="total">
+        <th>Ramp Weight (Max 3816lb)</th>
+        <td class="readonly"><input class="total" type="text" name="A7" value="0" readonly></td>
+        <td class="readonly"><input class="total" type="text" name="B7" value="0" readonly></td>
+        <td class="readonly"><input class="total" type="text" name="C7" value="0" readonly></td>
+    </tr>
+    <tr>
+        <th>Start & Taxi Fuel</th>
+        <td><input type="text" name="A8" value="0"></td>
+        <td class="readonly"><input type="text" name="B8" value="95.0" readonly></td>
+        <td class="readonly"><input type="text" name="C8" value="0" readonly></td>
+    </tr>
+    <tr class="total">
+        <th>Take-Off Weight (Max 3800lb)</th>
+        <td class="readonly"><input class="total" type="text" name="A9" value="0" readonly></td>
+        <td class="readonly"><input class="total" type="text" name="B9" value="0" readonly></td>
+        <td class="readonly"><input class="total" type="text" name="C9" value="0" readonly></td>
+    </tr>
+    <tr>
+        <th>Trip Fuel (6lb/USG)</th>
+        <td><input type="text" name="A10" value="0"></td>
+        <td class="readonly"><input type="text" name="B10" value="95.0" readonly></td>
+        <td class="readonly"><input type="text" name="C10" value="0" readonly></td>
+    </tr>
+    <tr class="total">
+        <th>Landing Weight (Max 3800lb)</th>
+        <td class="readonly"><input class="total" type="text" name="A11" value="0" readonly></td>
+        <td class="readonly"><input class="total" type="text" name="B11" value="0" readonly></td>
+        <td class="readonly"><input class="total" type="text" name="C11" value="0" readonly></td>
+    </tr>
+</table>
+<div id="PA44Graph" style="width:600px; height:500px;"></div>
+</body>
+</html>
